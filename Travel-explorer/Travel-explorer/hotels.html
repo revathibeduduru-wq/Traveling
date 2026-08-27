@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotels | Travel Explorer</title>
+
+    <link rel="stylesheet" href="hotels.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <!-- CLICKING THIS GOES TO MAIN HOME PAGE -->
+    <a href="index.html" class="brand">
+        <span class="brand-icon">✈</span>
+
+        <div>
+            <strong>TRAVEL</strong>
+            <small>EXPLORER</small>
+        </div>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="hotels.html" class="active">Hotels</a>
+        <a href="#family">Family Stays</a>
+        <a href="#budget">Budget</a>
+    </nav>
+
+    <button class="saved-top" onclick="showSaved()">
+        ♡ Saved
+        <span id="savedCount">0</span>
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            ✦ COMFORTABLE STAYS • SMART PRICES
+        </span>
+
+        <h1>
+            Stay better.<br>
+            <span>Spend smarter.</span>
+        </h1>
+
+        <p>
+            Find clean, comfortable and family-friendly hotels
+            that fit your travel budget.
+        </p>
+
+
+        <!-- SEARCH PANEL -->
+
+        <div class="search-panel">
+
+            <div class="search-item">
+
+                <label>Destination</label>
+
+                <input
+                    type="text"
+                    id="destination"
+                    placeholder="Where are you going?"
+                >
+
+            </div>
+
+
+            <div class="search-item">
+
+                <label>Check-in</label>
+
+                <input type="date" id="checkin">
+
+            </div>
+
+
+            <div class="search-item">
+
+                <label>Check-out</label>
+
+                <input type="date" id="checkout">
+
+            </div>
+
+
+            <div class="search-item">
+
+                <label>Guests</label>
+
+                <select id="guests">
+
+                    <option>2 Guests</option>
+                    <option>3 Guests</option>
+                    <option>4 Guests</option>
+                    <option>5 Guests</option>
+                    <option>6+ Guests</option>
+
+                </select>
+
+            </div>
+
+
+            <button class="search-button" onclick="searchHotels()">
+                Search Hotels →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= QUICK CATEGORIES ================= -->
+
+<section class="categories">
+
+    <div class="section-heading center">
+
+        <span>CHOOSE YOUR STAY</span>
+
+        <h2>
+            Something for every budget
+        </h2>
+
+        <p>
+            Whether you're travelling with family or exploring alone,
+            find a stay that feels right.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <button class="category-card" onclick="filterCategory('budget')">
+
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=700&q=80">
+            </div>
+
+            <div class="category-content">
+
+                <span>₹800 – ₹1,500</span>
+
+                <h3>💰 Budget Stays</h3>
+
+                <p>
+                    Comfortable rooms without
+                    stretching your budget.
+                </p>
+
+            </div>
+
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('family')">
+
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80">
+            </div>
+
+            <div class="category-content">
+
+                <span>₹1,200 – ₹2,500</span>
+
+                <h3>👨‍👩‍👧 Family Stays</h3>
+
+                <p>
+                    Safe and comfortable rooms
+                    for the whole family.
+                </p>
+
+            </div>
+
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('beach')">
+
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80">
+            </div>
+
+            <div class="category-content">
+
+                <span>₹1,500 – ₹3,000</span>
+
+                <h3>🌊 Beach Stays</h3>
+
+                <p>
+                    Relax near the sea without
+                    spending a fortune.
+                </p>
+
+            </div>
+
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('premium')">
+
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=700&q=80">
+            </div>
+
+            <div class="category-content">
+
+                <span>₹3,000 – ₹5,000</span>
+
+                <h3>✨ Premium Stays</h3>
+
+                <p>
+                    Extra comfort for a
+                    special trip.
+                </p>
+
+            </div>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SMART BUDGET ================= -->
+
+<section class="budget-section" id="budget">
+
+    <div class="budget-left">
+
+        <span>SMART BUDGET</span>
+
+        <h2>
+            How much do you want to spend?
+        </h2>
+
+        <p>
+            Move the slider and discover hotels
+            that match your budget.
+        </p>
+
+    </div>
+
+
+    <div class="budget-control">
+
+        <div class="budget-price">
+            <small>Up to</small>
+
+            <strong>
+                ₹<span id="budgetValue">1500</span>
+            </strong>
+
+            <small>/ night</small>
+        </div>
+
+
+        <input
+            type="range"
+            id="budgetRange"
+            min="500"
+            max="5000"
+            value="1500"
+            step="100"
+            oninput="changeBudget()"
+        >
+
+
+        <div class="range-labels">
+            <span>₹500</span>
+            <span>₹5000</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= HOTELS ================= -->
+
+<section class="hotels-section" id="family">
+
+    <div class="hotel-header">
+
+        <div>
+
+            <span>RECOMMENDED FOR YOU</span>
+
+            <h2 id="hotelHeading">
+                Comfortable stays under ₹1,500
+            </h2>
+
+            <p id="resultText">
+                Great options for families and budget travellers.
+            </p>
+
+        </div>
+
+
+        <select id="sortHotels" onchange="sortHotels()">
+
+            <option value="popular">Sort: Popular</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- FILTER BAR -->
+
+    <div class="filter-bar">
+
+        <button class="filter active" onclick="filterAll(this)">
+            All Hotels
+        </button>
+
+        <button class="filter" onclick="filterType('family', this)">
+            👨‍👩‍👧 Family Friendly
+        </button>
+
+        <button class="filter" onclick="filterType('budget', this)">
+            💰 Budget
+        </button>
+
+        <button class="filter" onclick="filterType('beach', this)">
+            🌊 Beach
+        </button>
+
+        <button class="filter" onclick="filterType('premium', this)">
+            ✨ Premium
+        </button>
+
+        <button class="filter" onclick="filterType('parking', this)">
+            🚗 Parking
+        </button>
+
+    </div>
+
+
+    <!-- HOTEL CARDS -->
+
+    <div class="hotel-grid" id="hotelGrid">
+
+
+        <!-- HOTEL 1 -->
+
+        <article
+            class="hotel-card"
+            data-price="1199"
+            data-rating="4.7"
+            data-type="family budget parking"
+            data-location="vijayawada"
+        >
+
+            <div class="hotel-photo">
+
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85">
+
+                <span class="deal">
+                    BEST VALUE
+                </span>
+
+                <button class="heart" onclick="saveHotel(this)">
+                    ♡
+                </button>
+
+                <span class="rating">
+                    ★ 4.7
+                </span>
+
+            </div>
+
+
+            <div class="hotel-body">
+
+                <small class="location">
+                    📍 Vijayawada, India
+                </small>
+
+                <h3>
+                    Comfort Family Inn
+                </h3>
+
+                <p>
+                    Clean rooms, peaceful surroundings
+                    and a great choice for families.
+                </p>
+
+
+                <div class="amenities">
+
+                    <span>❄ AC</span>
+                    <span>📶 Wi-Fi</span>
+                    <span>🚗 Parking</span>
+
+                </div>
+
+
+                <div class="hotel-footer">
+
+                    <div>
+
+                        <strong>
+                            ₹1,199
+                        </strong>
+
+                        <small>
+                            / night
+                        </small>
+
+                    </div>
+
+                    <a
+                        href="hotel-details.html?hotel=comfort-family-inn"
+                        class="details-btn"
+                    >
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- HOTEL 2 -->
+
+        <article
+            class="hotel-card"
+            data-price="1399"
+            data-rating="4.8"
+            data-type="family budget"
+            data-location="hyderabad"
+        >
+
+            <div class="hotel-photo">
+
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1000&q=85">
+
+                <span class="deal family-deal">
+                    FAMILY PICK
+                </span>
+
+                <button class="heart" onclick="saveHotel(this)">
+                    ♡
+                </button>
+
+                <span class="rating">
+                    ★ 4.8
+                </span>
+
+            </div>
+
+
+            <div class="hotel-body">
+
+                <small class="location">
+                    📍 Hyderabad, India
+                </small>
+
+                <h3>
+                    Green Leaf Residency
+                </h3>
+
+                <p>
+                    Spacious family rooms close to
+                    shopping and tourist attractions.
+                </p>
+
+
+                <div class="amenities">
+
+                    <span>❄ AC</span>
+                    <span>🍳 Breakfast</span>
+                    <span>📶 Wi-Fi</span>
+
+                </div>
+
+
+                <div class="hotel-footer">
+
+                    <div>
+
+                        <strong>
+                            ₹1,399
+                        </strong>
+
+                        <small>
+                            / night
+                        </small>
+
+                    </div>
+
+                    <a
+                        href="hotel-details.html?hotel=green-leaf"
+                        class="details-btn"
+                    >
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- HOTEL 3 -->
+
+        <article
+            class="hotel-card"
+            data-price="1299"
+            data-rating="4.6"
+            data-type="budget parking"
+            data-location="visakhapatnam"
+        >
+
+            <div class="hotel-photo">
+
+                <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1000&q=85">
+
+                <span class="deal">
+                    GREAT DEAL
+                </span>
+
+                <button class="heart" onclick="saveHotel(this)">
+                    ♡
+                </button>
+
+                <span class="rating">
+                    ★ 4.6
+                </span>
+
+            </div>
+
+
+            <div class="hotel-body">
+
+                <small class="location">
+                    📍 Visakhapatnam, India
+                </small>
+
+                <h3>
+                    City Comfort Hotel
+                </h3>
+
+                <p>
+                    Affordable city stay near
+                    popular tourist places.
+                </p>
+
+
+                <div class="amenities">
+
+                    <span>❄ AC</span>
+                    <span>🚗 Parking</span>
+                    <span>📶 Wi-Fi</span>
+
+                </div>
+
+
+                <div class="hotel-footer">
+
+                    <div>
+
+                        <strong>
+                            ₹1,299
+                        </strong>
+
+                        <small>
+                            / night
+                        </small>
+
+                    </div>
+
+                    <a
+                        href="hotel-details.html?hotel=city-comfort"
+                        class="details-btn"
+                    >
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- HOTEL 4 -->
+
+        <article
+            class="hotel-card"
+            data-price="1499"
+            data-rating="4.5"
+            data-type="beach budget"
+            data-location="goa"
+        >
+
+            <div class="hotel-photo">
+
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=85">
+
+                <span class="deal beach-deal">
+                    NEAR BEACH
+                </span>
+
+                <button class="heart" onclick="saveHotel(this)">
+                    ♡
+                </button>
+
+                <span class="rating">
+                    ★ 4.5
+                </span>
+
+            </div>
+
+
+            <div class="hotel-body">
+
+                <small class="location">
+                    📍 Goa, India
+                </small>
+
+                <h3>
+                    Palm Breeze Stay
+                </h3>
+
+                <p>
+                    Budget-friendly rooms just minutes
+                    away from the beach.
+                </p>
+
+
+                <div class="amenities">
+
+                    <span>❄ AC</span>
+                    <span>🍳 Breakfast</span>
+                    <span>📶 Wi-Fi</span>
+
+                </div>
+
+
+                <div class="hotel-footer">
+
+                    <div>
+
+                        <strong>
+                            ₹1,499
+                        </strong>
+
+                        <small>
+                            / night
+                        </small>
+
+                    </div>
+
+                    <a
+                        href="hotel-details.html?hotel=palm-breeze"
+                        class="details-btn"
+                    >
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- HOTEL 5 -->
+
+        <article
+            class="hotel-card"
+            data-price="2999"
+            data-rating="4.9"
+            data-type="family premium parking"
+            data-location="manali"
+        >
+
+            <div class="hotel-photo">
+
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85">
+
+                <span class="deal premium-deal">
+                    PREMIUM
+                </span>
+
+                <button class="heart" onclick="saveHotel(this)">
+                    ♡
+                </button>
+
+                <span class="rating">
+                    ★ 4.9
+                </span>
+
+            </div>
+
+
+            <div class="hotel-body">
+
+                <small class="location">
+                    📍 Manali, India
+                </small>
+
+                <h3>
+                    Mountain Peak Stay
+                </h3>
+
+                <p>
+                    Beautiful mountain views with
+                    premium family-friendly rooms.
+                </p>
+
+
+                <div class="amenities">
+
+                    <span>🔥 Bonfire</span>
+                    <span>🚗 Parking</span>
+                    <span>📶 Wi-Fi</span>
+
+                </div>
+
+
+                <div class="hotel-footer">
+
+                    <div>
+
+                        <strong>
+                            ₹2,999
+                        </strong>
+
+                        <small>
+                            / night
+                        </small>
+
+                    </div>
+
+                    <a
+                        href="hotel-details.html?hotel=mountain-peak"
+                        class="details-btn"
+                    >
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- HOTEL 6 -->
+
+        <article
+            class="hotel-card"
+            data-price="4200"
+            data-rating="4.9"
+            data-type="premium beach"
+            data-location="goa"
+        >
+
+            <div class="hotel-photo">
+
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85">
+
+                <span class="deal premium-deal">
+                    LUXURY
+                </span>
+
+                <button class="heart" onclick="saveHotel(this)">
+                    ♡
+                </button>
+
+                <span class="rating">
+                    ★ 4.9
+                </span>
+
+            </div>
+
+
+            <div class="hotel-body">
+
+                <small class="location">
+                    📍 Goa, India
+                </small>
+
+                <h3>
+                    Ocean Pearl Resort
+                </h3>
+
+                <p>
+                    A premium beachfront escape with
+                    beautiful ocean views.
+                </p>
+
+
+                <div class="amenities">
+
+                    <span>🏊 Pool</span>
+                    <span>🍳 Breakfast</span>
+                    <span>📶 Wi-Fi</span>
+
+                </div>
+
+
+                <div class="hotel-footer">
+
+                    <div>
+
+                        <strong>
+                            ₹4,200
+                        </strong>
+
+                        <small>
+                            / night
+                        </small>
+
+                    </div>
+
+                    <a
+                        href="hotel-details.html?hotel=ocean-pearl"
+                        class="details-btn"
+                    >
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WHY SECTION ================= -->
+
+<section class="why">
+
+    <div class="section-heading center">
+
+        <span>WHY TRAVEL EXPLORER</span>
+
+        <h2>
+            Travel more. Worry less.
+        </h2>
+
+    </div>
+
+
+    <div class="why-grid">
+
+        <div>
+            <b>₹</b>
+            <h3>Budget Friendly</h3>
+            <p>
+                Options starting from just ₹500.
+            </p>
+        </div>
+
+        <div>
+            <b>✓</b>
+            <h3>Family Friendly</h3>
+            <p>
+                Comfortable stays for everyone.
+            </p>
+        </div>
+
+        <div>
+            <b>♡</b>
+            <h3>Save Your Favourites</h3>
+            <p>
+                Keep your favourite hotels in one place.
+            </p>
+        </div>
+
+        <div>
+            <b>★</b>
+            <h3>Easy Booking</h3>
+            <p>
+                Find the right stay without confusion.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <a href="index.html" class="footer-logo">
+            ✈ Travel Explorer
+        </a>
+
+        <p>
+            Good stays shouldn't have to be expensive.
+        </p>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Travel Explorer
+        <span>
+            Explore • Stay • Remember
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="hotels.js"></script>
+
+</body>
+</html>
