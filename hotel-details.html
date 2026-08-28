@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Details | Travel Explorer</title>
+
+    <link rel="stylesheet" href="hotels.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        body {
+            background: #f5f7f8;
+        }
+
+        .details-page {
+            max-width: 1250px;
+            margin: 50px auto;
+            padding: 0 25px;
+        }
+
+        .back-btn {
+            display: inline-block;
+
+            color: #087f98;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin-bottom: 20px;
+        }
+
+        .details-card {
+            background: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 50px rgba(0,0,0,.08);
+        }
+
+        .details-image {
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .details-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .details-content {
+            padding: 35px;
+        }
+
+        .details-location {
+            color: #087f98;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .details-content h1 {
+            font-size: 38px;
+
+            margin: 8px 0;
+        }
+
+        .details-rating {
+            color: #d58a21;
+
+            font-weight: 700;
+        }
+
+        .details-description {
+            max-width: 750px;
+
+            color: #718087;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            margin-top: 18px;
+        }
+
+        .details-features {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin: 25px 0;
+        }
+
+        .details-features span {
+            padding: 9px 13px;
+
+            background: #edf6f7;
+
+            color: #53666c;
+
+            border-radius: 8px;
+
+            font-size: 11px;
+        }
+
+        .booking-box {
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border-radius: 15px;
+
+            background: #082f3b;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .booking-price small {
+            color: #9db6bb;
+            font-size: 11px;
+        }
+
+        .booking-price strong {
+            display: block;
+
+            color: #65dbe6;
+
+            font-size: 30px;
+        }
+
+        .reserve-btn {
+            border: none;
+
+            background: #087f98;
+
+            color: white;
+
+            padding: 14px 25px;
+
+            border-radius: 9px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .reserve-btn:hover {
+            background: #05677d;
+
+            transform: translateY(-2px);
+        }
+
+        @media(max-width:650px) {
+
+            .details-page {
+                margin-top: 25px;
+            }
+
+            .details-image {
+                height: 300px;
+            }
+
+            .details-content {
+                padding: 25px;
+            }
+
+            .details-content h1 {
+                font-size: 29px;
+            }
+
+            .booking-box {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+            }
+
+            .reserve-btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+
+        <span class="brand-icon">✈</span>
+
+        <div>
+
+            <strong>TRAVEL</strong>
+            <small>EXPLORER</small>
+
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="hotels.html" class="active">
+            Hotels
+        </a>
+
+    </nav>
+
+
+    <a href="hotels.html"
+       class="saved-top">
+
+        ← Back to Hotels
+
+    </a>
+
+</header>
+
+
+
+<main class="details-page">
+
+    <a href="hotels.html"
+       class="back-btn">
+
+        ← Back to all hotels
+
+    </a>
+
+
+    <div class="details-card">
+
+
+        <div class="details-image">
+
+            <img
+                id="hotelImage"
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=90"
+                alt="Hotel"
+            >
+
+        </div>
+
+
+        <div class="details-content">
+
+            <div class="details-location"
+                 id="hotelLocation">
+
+                📍 Vijayawada, India
+
+            </div>
+
+
+            <h1 id="hotelName">
+                Comfort Family Inn
+            </h1>
+
+
+            <div class="details-rating"
+                 id="hotelRating">
+
+                ★ 4.7 • Excellent
+
+            </div>
+
+
+            <p class="details-description"
+               id="hotelDescription">
+
+                A comfortable and affordable stay designed
+                for families and travellers who want clean
+                rooms, convenient facilities and a peaceful
+                experience without spending too much.
+
+            </p>
+
+
+            <div class="details-features">
+
+                <span>❄ Air Conditioning</span>
+
+                <span>📶 Free Wi-Fi</span>
+
+                <span>🚗 Parking</span>
+
+                <span>🍳 Breakfast Available</span>
+
+                <span>👨‍👩‍👧 Family Friendly</span>
+
+            </div>
+
+
+            <div class="booking-box">
+
+                <div class="booking-price">
+
+                    <small>
+                        Starting from
+                    </small>
+
+                    <strong id="hotelPrice">
+                        ₹1,199
+                    </strong>
+
+                    <small>
+                        / night
+                    </small>
+
+                </div>
+
+
+                <button
+                    class="reserve-btn"
+                    onclick="reserveHotel()"
+                >
+                    Reserve This Stay →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script>
+
+const hotels = {
+
+    "comfort-family-inn": {
+
+        name: "Comfort Family Inn",
+
+        location: "📍 Vijayawada, India",
+
+        rating: "★ 4.7 • Excellent",
+
+        price: "₹1,199",
+
+        image:
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=90",
+
+        description:
+        "A comfortable and affordable family stay with clean rooms, convenient facilities, peaceful surroundings and easy access to popular places."
+    },
+
+
+    "green-leaf": {
+
+        name: "Green Leaf Residency",
+
+        location: "📍 Hyderabad, India",
+
+        rating: "★ 4.8 • Excellent",
+
+        price: "₹1,399",
+
+        image:
+        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1600&q=90",
+
+        description:
+        "A spacious family-friendly property located close to shopping areas, restaurants and popular attractions."
+    },
+
+
+    "city-comfort": {
+
+        name: "City Comfort Hotel",
+
+        location: "📍 Visakhapatnam, India",
+
+        rating: "★ 4.6 • Very Good",
+
+        price: "₹1,299",
+
+        image:
+        "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1600&q=90",
+
+        description:
+        "An affordable city stay offering comfortable rooms, parking and easy access to tourist destinations."
+    },
+
+
+    "palm-breeze": {
+
+        name: "Palm Breeze Stay",
+
+        location: "📍 Goa, India",
+
+        rating: "★ 4.5 • Very Good",
+
+        price: "₹1,499",
+
+        image:
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=90",
+
+        description:
+        "A budget-friendly Goa stay located close to the beach, perfect for travellers looking for comfort at a reasonable price."
+    },
+
+
+    "mountain-peak": {
+
+        name: "Mountain Peak Stay",
+
+        location: "📍 Manali, India",
+
+        rating: "★ 4.9 • Excellent",
+
+        price: "₹2,999",
+
+        image:
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=90",
+
+        description:
+        "Enjoy beautiful mountain views, comfortable rooms, family-friendly facilities and a peaceful holiday atmosphere."
+    },
+
+
+    "ocean-pearl": {
+
+        name: "Ocean Pearl Resort",
+
+        location: "📍 Goa, India",
+
+        rating: "★ 4.9 • Excellent",
+
+        price: "₹4,200",
+
+        image:
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=90",
+
+        description:
+        "A premium beachfront resort offering beautiful ocean views, a relaxing atmosphere and a memorable stay."
+    }
+
+};
+
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const hotel =
+    params.get("hotel");
+
+
+if (hotel && hotels[hotel]) {
+
+    const data = hotels[hotel];
+
+    document.getElementById("hotelName")
+        .textContent = data.name;
+
+    document.getElementById("hotelLocation")
+        .textContent = data.location;
+
+    document.getElementById("hotelRating")
+        .textContent = data.rating;
+
+    document.getElementById("hotelPrice")
+        .textContent = data.price;
+
+    document.getElementById("hotelImage")
+        .src = data.image;
+
+    document.getElementById("hotelDescription")
+        .textContent = data.description;
+
+}
+
+
+function reserveHotel() {
+
+    alert(
+        "Reservation feature coming next! ❤️"
+    );
+
+}
+
+</script>
+
+</body>
+
+</html>
