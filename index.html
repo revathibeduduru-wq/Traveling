@@ -7,6 +7,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/favourites.css">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,15 +31,20 @@
 
         <ul class="nav-links">
 
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
 
-            <li><a href="#">Destinations</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
 
-            <li><a href="#">Hotels</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
 
-            <li><a href="#">Favourites</a></li>
+            <li>
+                <a href="favourites.html" class="nav-fav-link">
+                    Favourites
+                    <span class="fav-count-badge">0</span>
+                </a>
+            </li>
 
-            <li><a href="#">Profile</a></li>
+            <li><a href="profile.html">Profile</a></li>
 
         </ul>
 
@@ -138,7 +144,24 @@
 
         <div class="destination-card">
 
-            <img src="images/goa.jpg" alt="Goa">
+            <div class="card-media">
+                <img src="images/goa.jpg" alt="Goa" onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback');" data-fallback-icon="fa-umbrella-beach">
+                <button class="fav-btn"
+                    data-id="dest-goa"
+                    data-type="destination"
+                    data-name="Goa"
+                    data-location="India"
+                    data-rating="4.8"
+                    data-price="15000"
+                    data-image="images/goa.jpg"
+                    data-icon="fa-umbrella-beach"
+                    data-desc="Golden beaches, laid-back shacks and buzzing nightlife make Goa India's favourite coastal escape."
+                    data-besttime="November to February"
+                    data-todo="Beach hopping|Water sports|Fort Aguada|Flea markets"
+                    aria-label="Add Goa to favourites">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
 
             <div class="card-content">
 
@@ -160,7 +183,24 @@
 
         <div class="destination-card">
 
-            <img src="images/paris.jpg" alt="Paris">
+            <div class="card-media">
+                <img src="images/paris.jpg" alt="Paris" onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback');" data-fallback-icon="fa-landmark">
+                <button class="fav-btn"
+                    data-id="dest-paris"
+                    data-type="destination"
+                    data-name="Paris"
+                    data-location="France"
+                    data-rating="4.9"
+                    data-price="120000"
+                    data-image="images/paris.jpg"
+                    data-icon="fa-landmark"
+                    data-desc="The City of Light, famous for the Eiffel Tower, world-class museums, and charming riverside cafes."
+                    data-besttime="April to June"
+                    data-todo="Eiffel Tower|Louvre Museum|Seine river cruise|Montmartre walk"
+                    aria-label="Add Paris to favourites">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
 
             <div class="card-content">
 
@@ -182,7 +222,24 @@
 
         <div class="destination-card">
 
-            <img src="images/bali.jpg" alt="Bali">
+            <div class="card-media">
+                <img src="images/bali.jpg" alt="Bali" onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback');" data-fallback-icon="fa-tree">
+                <button class="fav-btn"
+                    data-id="dest-bali"
+                    data-type="destination"
+                    data-name="Bali"
+                    data-location="Indonesia"
+                    data-rating="4.8"
+                    data-price="65000"
+                    data-image="images/bali.jpg"
+                    data-icon="fa-tree"
+                    data-desc="Lush rice terraces, ancient temples, and serene beaches make Bali an island of endless calm."
+                    data-besttime="May to September"
+                    data-todo="Ubud rice terraces|Tanah Lot temple|Surfing at Kuta|Sunset at Uluwatu"
+                    aria-label="Add Bali to favourites">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
 
             <div class="card-content">
 
@@ -214,7 +271,24 @@
         <!-- Hotel 1 -->
         <div class="hotel-card">
 
-            <img src="images/hotel1.jpg" alt="Hotel">
+            <div class="card-media">
+                <img src="images/hotel1.jpg" alt="Hotel" onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback');" data-fallback-icon="fa-hotel">
+                <button class="fav-btn"
+                    data-id="hotel-taj-resort"
+                    data-type="hotel"
+                    data-name="Taj Resort"
+                    data-location="Goa, India"
+                    data-rating="4.8"
+                    data-price="5500"
+                    data-image="images/hotel1.jpg"
+                    data-icon="fa-hotel"
+                    data-desc="A beachfront luxury resort with spacious rooms, a private pool, and fine dining, rated 4.8 from 250 reviews."
+                    data-besttime="November to February"
+                    data-todo="Private beach access|Spa and wellness|Rooftop dining|Pool deck"
+                    aria-label="Add Taj Resort to favourites">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
 
             <div class="hotel-info">
 
@@ -234,7 +308,24 @@
 
         <div class="hotel-card">
 
-            <img src="images/hotel2.jpg" alt="Hotel">
+            <div class="card-media">
+                <img src="images/hotel2.jpg" alt="Hotel" onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback');" data-fallback-icon="fa-water">
+                <button class="fav-btn"
+                    data-id="hotel-sea-view-resort"
+                    data-type="hotel"
+                    data-name="Sea View Resort"
+                    data-location="Kerala, India"
+                    data-rating="4.7"
+                    data-price="4200"
+                    data-image="images/hotel2.jpg"
+                    data-icon="fa-water"
+                    data-desc="Calm backwater views, comfortable rooms, and warm hospitality, rated 4.7 from 190 reviews."
+                    data-besttime="October to March"
+                    data-todo="Backwater cruise|Ayurvedic spa|Sunset viewpoint|Local seafood"
+                    aria-label="Add Sea View Resort to favourites">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
 
             <div class="hotel-info">
 
@@ -254,7 +345,24 @@
 
         <div class="hotel-card">
 
-            <img src="images/hotel3.jpg" alt="Hotel">
+            <div class="card-media">
+                <img src="images/hotel3.jpg" alt="Hotel" onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback');" data-fallback-icon="fa-mountain">
+                <button class="fav-btn"
+                    data-id="hotel-mountain-palace"
+                    data-type="hotel"
+                    data-name="Mountain Palace"
+                    data-location="Manali, India"
+                    data-rating="4.9"
+                    data-price="6300"
+                    data-image="images/hotel3.jpg"
+                    data-icon="fa-mountain"
+                    data-desc="A cosy mountainside retreat with valley views, a fireplace lounge, and locally sourced meals, rated 4.9 from 310 reviews."
+                    data-besttime="March to June"
+                    data-todo="Valley trekking|Bonfire evenings|Local cafes|Snow point drive"
+                    aria-label="Add Mountain Palace to favourites">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
 
             <div class="hotel-info">
 
@@ -452,6 +560,7 @@
 
 <!-- Next sections will be added here -->
 
+<script src="js/favourites.js"></script>
 <script src="js/app.js"></script>
 
 </body>

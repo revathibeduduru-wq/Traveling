@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favourites - Travel Explorer</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/favourites.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌍 Travel Explorer
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="destinations.html">Destinations</a></li>
+
+            <li><a href="hotels.html">Hotels</a></li>
+
+            <li>
+                <a href="favourites.html" class="nav-fav-link">
+                    Favourites
+                    <span class="fav-count-badge">0</span>
+                </a>
+            </li>
+
+            <li><a href="profile.html">Profile</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<!-- ===================== FAV HERO ===================== -->
+
+<section class="fav-hero">
+    <h1>❤️ My Favourites</h1>
+    <p>Your saved travel experiences, all in one place.</p>
+</section>
+
+<!-- ===================== DASHBOARD ===================== -->
+
+<section class="fav-dashboard">
+    <div class="dash-stats">
+
+        <div class="dash-card">
+            <div class="dash-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div class="dash-number" id="statDestinations">0</div>
+            <div class="dash-label">Favourite Destinations</div>
+        </div>
+
+        <div class="dash-card">
+            <div class="dash-icon"><i class="fa-solid fa-hotel"></i></div>
+            <div class="dash-number" id="statHotels">0</div>
+            <div class="dash-label">Favourite Hotels</div>
+        </div>
+
+        <div class="dash-card">
+            <div class="dash-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div class="dash-number" id="statRecent">-</div>
+            <div class="dash-label">Recently Added</div>
+        </div>
+
+        <div class="dash-card">
+            <div class="dash-icon"><i class="fa-solid fa-heart"></i></div>
+            <div class="dash-number" id="statTotal">0</div>
+            <div class="dash-label">Total Favourites</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== CONTROLS ===================== -->
+
+<section class="fav-controls">
+
+    <div class="fav-controls-row">
+
+        <div class="fav-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="favSearchInput" placeholder="Search your favourites...">
+        </div>
+
+        <div class="fav-sort">
+            <select id="favSortSelect">
+                <option value="recent">Sort: Recently Added</option>
+                <option value="rating">Sort: Highest Rated</option>
+                <option value="priceLow">Sort: Lowest Price</option>
+                <option value="popular">Sort: Most Popular</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="fav-tabs" id="favTabs">
+        <button class="fav-tab active" data-filter="all">🌍 All</button>
+        <button class="fav-tab" data-filter="destination">📍 Destinations</button>
+        <button class="fav-tab" data-filter="hotel">🏨 Hotels</button>
+        <button class="fav-tab" data-filter="restaurant">🍴 Restaurants</button>
+        <button class="fav-tab" data-filter="activity">🎯 Activities</button>
+    </div>
+
+</section>
+
+<!-- ===================== GRID / EMPTY STATE ===================== -->
+
+<section class="fav-grid-section">
+
+    <div id="favGrid" class="fav-grid"></div>
+
+    <div id="favEmpty" class="fav-empty" style="display:none;">
+        <i class="fa-regular fa-heart"></i>
+        <h3>No favourites yet!</h3>
+        <p>Start exploring and save your favourite destinations and hotels.</p>
+        <a href="index.html">Explore Destinations <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div id="tripBar" class="trip-bar">
+        <span id="tripBarText">0 selected for your trip</span>
+        <button id="createTripBtn">✨ Create My Trip</button>
+    </div>
+
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2>🌍 Travel Explorer</h2>
+            <p>
+                Discover beautiful destinations around the world.
+                Plan your trips with maps, hotels, GPS navigation,
+                trip budgets, voice search, and favourite destinations.
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="favourites.html">Favourites</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Features</h3>
+            <ul>
+                <li>🔍 Smart Search</li>
+                <li>🎤 Voice Search</li>
+                <li>🗺 Live Maps</li>
+                <li>📍 GPS Navigation</li>
+                <li>💰 Trip Cost</li>
+                <li>💱 Currency Converter</li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email : info@travelexplorer.com</p>
+            <p>Phone : +91 98765 43210</p>
+            <p>India</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="copyright">
+        <p>© 2026 Travel Explorer. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+<!-- ===================== DETAILS MODAL ===================== -->
+
+<div class="te-modal-overlay" id="detailsOverlay">
+    <div class="te-modal" id="detailsModal">
+        <button class="te-modal-close" data-close="detailsOverlay"><i class="fa-solid fa-xmark"></i></button>
+        <div id="detailsContent"></div>
+    </div>
+</div>
+
+<!-- ===================== REMOVE CONFIRM MODAL ===================== -->
+
+<div class="te-modal-overlay" id="confirmOverlay">
+    <div class="te-modal confirm-modal">
+        <i class="fa-solid fa-heart-crack"></i>
+        <h3 id="confirmText">Remove this item from your favourites?</h3>
+        <div class="confirm-actions">
+            <button class="btn-cancel" id="confirmCancelBtn">Cancel</button>
+            <button class="btn-remove" id="confirmRemoveBtn">Remove</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== TRIP PLAN MODAL ===================== -->
+
+<div class="te-modal-overlay" id="tripOverlay">
+    <div class="te-modal trip-modal">
+        <button class="te-modal-close" data-close="tripOverlay"><i class="fa-solid fa-xmark"></i></button>
+        <h2>My Dream Trip</h2>
+        <p class="trip-sub" id="tripSubtext">0 destinations selected</p>
+
+        <div class="trip-summary-grid">
+            <div>
+                <div class="num" id="tripBudget">₹0</div>
+                <div class="lbl">Estimated Budget</div>
+            </div>
+            <div>
+                <div class="num" id="tripDuration">0 days</div>
+                <div class="lbl">Suggested Duration</div>
+            </div>
+        </div>
+
+        <ul class="trip-item-list" id="tripItemList"></ul>
+
+        <button class="trip-close-btn" data-close="tripOverlay">Close</button>
+    </div>
+</div>
+
+<script src="js/favourites.js"></script>
+<script src="js/favourites-page.js"></script>
+
+</body>
+</html>
